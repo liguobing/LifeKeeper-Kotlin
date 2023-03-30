@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="white">#ffffff</color>
+    <color name="AddBillActivity_ToolBarColor">#15b7b9</color>
+    <color name="AddBillActivity_Background">#f5f5f5</color>
+    <color name="AddBillActivity_ToolBar_Text">#ffffff</color>
+    <color name="AddBillActivity_Shop_Date_Text">#ffffff</color>
+    <color name="AddBillActivity_Save_Text">#ffffff</color>
+    <color name="AddBillActivity_Save">#f57170</color>
+    <color name="AddBillActivity_Clear_Text">#000000</color>
+    <color name="AddBillActivity_Shop_Date">#10ddc2</color>
+    <color name="BillShopActivity_ToolBarColor">#1B82D1</color>
+    <color name="BillShopActivity_ToolBar_TextColor">#ffffff</color>
+    <color name="BillShopActivity_ToolBar_HintTextColor">#B8B6B6</color>
+    <color name="BillShopActivity_ListViewColor">#ffffff</color>
+    <color name="BillShopActivity_AddNewShopButtonBackgroundColor">#00e0ff</color>
+    <color name="BillChartActivity_ToolBarColor">#529AF8</color>
+    <color name="BillChartActivity_PieChartBillPropertyTextCheckedColor">#ffffff</color>
+    <color name="BillChartActivity_LineChartBackground">#ffffff</color>
+    <color name="BillChartActivity_PieChartListViewColor">#ffffff</color>
+    <color name="BillChartActivity_OverviewBackgroundColor">#FFFFFF</color>
+    <color name="BillChartActivity_Background">#F1F1F1</color>
+    <color name="BillChartActivity_ToolBarTextColor">#FFFFFF</color>
+    <color name="BillChartActivity_PieChartBillPropertyCheckedBackground">#888888</color>
+    <color name="BillChartActivity_PieChartStrokeColor">#888888</color>
+    <color name="BillChartActivity_PieChartBillPropertyUnCheckedBackground">#ffffff</color>
+    <color name="BillChartActivity_PieChartBillPropertyTextUnCheckedColor">#000000</color>
+    <color name="BillChartActivity_LineChartBillPropertyTextCheckedColor">#ffffff</color>
+    <color name="BillChartActivity_LineChartBillPropertyTextUnCheckedColor">#000000</color>
+    <color name="PlanListActivityBackgroundColor">#FBFAFF</color>
+    <color name="ImageCategoryActivityEditCategoryButtonBackground">#10ddc2</color>
+
+<!--    <color name="colorPrimary">#3F51B5</color>-->
+<!--    <color name="colorPrimaryDark">#303F9F</color>-->
+<!--    <color name="colorAccent">#FF4081</color>-->
+
+    <color name="lightGrey">#d3d3d3</color>
+    <color name="errorColor">#FF4D4F</color>
+    <color name="RecordActivityContactNameAndCallTime">#006d77</color>
+    <color name="RecordActivityPlayControlPanel">#83c5be</color>
+    <color name="RecordActivityPlayList">#edf6f9</color>
+    <color name="RecordActivityPlayListChecked">#e29578</color>
+    <color name="RecordActivityTopBarBackgroundColor">#05668d</color>
+    <color name="RecordActivityContactListItemColor">#cce3de</color>
+</resources>

@@ -1,0 +1,233 @@
+<resources>
+    <string name="app_name">电子管家</string>
+
+    <!--    WelcomeActivity-->
+    <string name="permission_warning">您拒绝了一些权限，可能会影响使用，<u>去设置。</u></string>
+    <!-- WelcomeActivity 申请权限AlertDialog资源-->
+    <string name="close_alertdialog">关闭AlertDialog按钮</string>
+    <string name="request_permission">申请权限</string>
+    <string name="storage_logo">存储logo</string>
+    <string name="storage_title">存储空间权限</string>
+    <string name="storage_message">上传您购买的商品图片。</string>
+    <string name="mic_logo">麦克风logo</string>
+    <string name="mic_title">麦克风权限</string>
+    <string name="mic_message">语音输入账单信息。</string>
+    <string name="location_logo">定位logo</string>
+    <string name="location_title">位置权限</string>
+    <string name="location_message">记录消费位置。</string>
+    <string name="calendar_title">日历权限</string>
+    <string name="calendar_message">记录您的日程计划。</string>
+    <string name="start_request">去开启</string>
+    <string name="WelcomeActivityTimeDownButton">请稍后 %d</string>
+
+    <!-- CustomDialog -->
+    <string name="showingImage">显示的图片</string>
+    <string name="successfulBottom">完成时下面的图片</string>
+    <string name="successfulTop">完成时上面的图片</string>
+
+    <!--    IndexActivity-->
+    <string name="IndexActivityLoadingText">数据载入中，请稍候…</string>
+    <string name="cardViewPlanMessage">当天还有 5 项计划没有完成</string>
+    <string name="cardViewAccountTitleIncome">本月收入：￥ %.2f</string>
+    <string name="cardViewAccountTitleIncomeMoney">20000</string>
+    <string name="cardViewAccountTitleExpend">本月支出：￥ %.2f</string>
+    <string name="cardViewAccountTitleExpendMoney">2000</string>
+    <string name="CardViewNetFileCount">云端保存了 %d 个文件</string>
+    <string name="loginLink">您还没有登录，点击登录</string>
+    <string name="registerLink">没有帐号？点击注册</string>
+
+    <!--    LoginActivity-->
+    <string name="back">返回</string>
+    <string name="weixin_icon">微信logo</string>
+    <string name="weibo_icon">微博logo</string>
+    <string name="qq_icon">QQlogo</string>
+    <string name="LoginActivityForgetPassword">找回密码</string>
+    <string name="bindPhone">绑定手机号</string>
+    <string name="inputPhoneNumber">请输入手机号码</string>
+    <string name="inputVerifyCode">输入验证码</string>
+    <string name="getVerifyCode">获取验证码</string>
+    <string name="LoginActivityInputPassword">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="phone">请输入手机号</string>
+    <string name="LoginActivityLoginForVerifyCode">验证码登录</string>
+
+    <!-- VerifyCodeActivity -->
+    <string name="verify">验证</string>
+    <string name="inputYourCode">请输入收到的验证码</string>
+    <string name="VerifyCodeInputNewPassword">请输入新密码</string>
+    <string name="VerifyCodeResetPassword">重置密码</string>
+    <string name="VerifyCodeActivityPhoneTitle">验证码已经发送到%s</string>
+
+    <!-- RegisterActivity -->
+    <string name="RegisterActivityInputUserNameAndPhone">输入用户名和手机号</string>
+    <string name="RegisterActivityInputUserName">请输入用户名</string>
+    <string name="RegisterActivityInputPassword">请输入密码</string>
+    <string name="RegisterActivityRegister">注册</string>
+    <string name="RegisterActivityPhoneTitle">验证码已经发送到%s</string>
+
+
+    <!--    BillListActivity-->
+    <string name="activity_account_book_drawer_menu_img_button">用于唤出DrawerLayout菜单</string>
+    <string name="activity_account_book_last_month">上一月</string>
+    <string name="activity_account_book_next_month">下一月</string>
+    <string name="activity_account_book_drawer_category">账单类别</string>
+    <string name="activity_account_book_drawer_account">账户分类</string>
+    <string name="activity_account_book_drawer_chart">图表</string>
+    <string name="popup_remark">备注</string>
+    <string name="popup_shop">商家</string>
+    <string name="popup_time">时间</string>
+    <string name="popup_account">账户</string>
+    <string name="popup_category">分类</string>
+    <string name="popup_money">金额</string>
+    <string name="popup_delete">删除</string>
+    <string name="bill_icon">交易图标</string>
+    <string name="BillListActivityIncomeMonth">%d 月收入</string>
+    <string name="BillListActivityExpendMonth">%d 月支出</string>
+
+    <!--    AddBillActivity-->
+    <string name="error_gif">x or y bound size should be at least %1$dpx and file size should be no more than %2$sM</string>
+    <string name="add_bill_drawer_add">Add</string>
+    <string name="add_bill_save">保存</string>
+    <string name="add_bill_reset">重置</string>
+    <string name="add_bill_shop">商家</string>
+    <string name="add_bill_image">添加账单图片</string>
+    <string name="add_bill_input_money">0.0</string>
+    <string name="add_bill_remark">备注</string>
+    <string name="add_bill_image_dialog_detail">账单详情图片</string>
+    <string name="add_bill_image_dialog_delete">删除账单详情图片</string>
+    <string name="AddBillActivityImageLoading">图片载入中…</string>
+    <string name="add_bill_drawer_dialog_hint">输入要添加的内容</string>
+    <string name="add_bill_drawer_dialog_submit">提交</string>
+    <string name="add_bill_shop_name">%s…</string>
+    <!--    BillShopActivity-->
+    <string name="activity_search_shop_toolbar_title">消费商家</string>
+    <string name="activity_search_shop_toolbar_search_button">Toolbar搜索按钮</string>
+    <string name="activity_search_shop_hint_search_message">搜索商圈/商家</string>
+    <string name="activity_search_shop_add_new_shop_title">添加新商家</string>
+    <string name="activity_search_shop_add_new_shop">输入新商家名称</string>
+    <string name="activity_search_shop_add_new_shop_dialog_submit">保存</string>
+
+    <!--    BillCategoryActivity-->
+    <string name="income">收入</string>
+    <string name="expend">支出</string>
+    <string name="hint_message">单击修改，长按拖拽排序</string>
+    <string name="addIncomeCategory">+ 添加收入分类</string>
+    <string name="addExpendCategory">+ 添加支出分类</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="add_category_dialog_input_new_category_name">请输入分类名称</string>
+    <string name="add_category_dialog_submit_add">提交</string>
+    <string name="edit_category_dialog_text1">将</string>
+    <string name="edit_category_dialog_text2">修改为</string>
+    <string name="edit_category_dialog_new_category_name_hint">请输入分类名称</string>
+    <string name="edit_category_dialog_submit_edit">确定</string>
+
+    <!-- BillAccountActivity  -->
+    <string name="activity_bill_account_toolbar_title">账户</string>
+    <string name="activity_bill_account_add_new_account">+ 添加新账户</string>
+    <string name="add_account_dialog_input_new_account_name">输入新账户名称</string>
+    <string name="add_account_dialog_submit_add">提交</string>
+    <string name="edit_account_dialog_will">将</string>
+    <string name="edit_account_dialog_edit_to">修改为</string>
+    <string name="edit_account_dialog_input_new_account_name">请输入账户名称</string>
+    <string name="edit_account_dialog_submit_add">提交</string>
+
+    <!-- BillChartActivity -->
+    <string name="BillChartActivity_toolbar_title">图表</string>
+    <string name="BillChartActivity_Overview">收支概览</string>
+    <string name="BillChartActivity_Income">收入</string>
+    <string name="BillChartActivity_Balance">结余</string>
+    <string name="BillChartActivity_Expend">支出</string>
+    <string name="BillChartActivity_Evaluate">日均支出</string>
+    <string name="BillChartActivity_PieTitle">分类账单统计</string>
+    <string name="BillChartActivity_LineChartTitle">每日收支波动图</string>
+    <string name="BillChartActivity_LineChartAllProperty">全部</string>
+
+    <!--    PlanListActivity-->
+    <string name="PlanListActivityTitle">计划列表</string>
+    <string name="PlanListActivityNoPlan">Oops! 今日无待办事项!</string>
+    <string name="PlanListActivityToday">当天</string>
+    <!--    AddPlanAlarmActivity-->
+    <string name="set_alarm">提醒设置</string>
+
+    <!-- AddPlanActivity -->
+    <string name="add_plan">添加计划</string>
+    <string name="save_plan_btn">保存按钮</string>
+    <string name="AddPlanActivityPlanTitleHint">请输入计划标题</string>
+    <string name="AddPlanActivityAllDayTitle">全天事件</string>
+    <string name="AddPlanActivityStartDateTitle">开始日期</string>
+    <string name="AddPlanActivityArrows">\ ></string>
+    <string name="AddPlanActivityStartTimeTitle">开始时间</string>
+    <string name="AddPlanActivityRepeatTitle">重复</string>
+    <string name="AddPlanActivityOneTimePlan">一次性活动</string>
+    <string name="AddPlanActivityRepeatOverTitle">结束重复</string>
+    <string name="AddPlanActivityRepeatOverDefaultCount">30 次（默认）</string>
+    <string name="AddPlanActivityAlarmTitle">提醒</string>
+    <string name="AddPlanActivityAlarmDefaultNotNotification">默认不提醒</string>
+    <string name="AddPlanActivityAlarmSwitchTitle">闹钟提醒</string>
+    <string name="AddPlanActivityLocationHint">请输入地点</string>
+    <string name="AddPlanActivityDescriptionHint">请输入备注</string>
+    <string name="AddPlanActivity8ClockOnTheDay">当天 8 点</string>
+
+    <!--    AddPlanRepeatOverActivity-->
+    <string name="end_repeat">结束重复</string>
+    <string name="time_end">时间</string>
+    <string name="count_end">次数</string>
+
+    <!-- UserCenterActivity -->
+    <string name="activity_personal_information_logo">logo</string>
+    <string name="activity_personal_information_change_password_title">修改密码</string>
+    <string name="activity_personal_information_change_username_title">修改名称</string>
+    <string name="activity_personal_information_change_phone_title">修改手机</string>
+    <string name="activity_personal_information_logout">注销登录</string>
+    <string name="userIcon">用户头像</string>
+    <string name="activity_personal_information_test_name">二宝蛋</string>
+    <string name="activity_personal_information_change_password_password_hint">输入密码</string>
+    <string name="activity_personal_information_change_password_repeat_new_password_hint">重复新密码</string>
+    <string name="activity_personal_information_change_password_new_username_hint">输入新用户名</string>
+
+    <!--SetUserIconActivity-->
+    <string name="set_user_icon_submit_icon">提交截取后的头像</string>
+
+    <!--PhotoActivity-->
+    <string name="PhotoActivityUploadLocalFile">有文件没备份，点我上传</string>
+    <string name="PhotoActivityToolbarTitle">网络硬盘</string>
+
+    <string name="delete_count">删除(%d)</string>
+
+    <!--    PhotoThumbnailActivity-->
+    <string name="PhotoThumbnailActivityDelete">删除(%d)</string>
+    <string name="PhotoThumbnailActivityMove">移动到…</string>
+    <string name="PhotoThumbnailActivityCancel">取消</string>
+
+    <!--    VideoThumbnailListActivity-->
+    <string name="VideoThumbnailActivityDelete">删除(%d)</string>
+    <string name="VideoThumbnailActivityMove">移动到…</string>
+    <string name="VideoThumbnailActivityCancel">取消</string>
+    <string name="move_video_title">将视频移动到</string>
+
+    <!--    PhoneRecordActivity-->
+    <string name="CallRecordActivityStartUploadCallRecord">开始上传</string>
+
+    <!--    ImageCategoryActivity-->
+    <string name="ImageCategoryActivityStartUploadImage">开始上传</string>
+    <string name="ImageCategoryActivityAddExcept">添加忽略</string>
+
+    <!--    ShowImageDetailActivity-->
+    <string name="move_image_title">将图片移动到</string>
+    <string name="ShowImageDetailCreateNewCategory">创建新分类</string>
+    <string name="ShowImageDetailNewCategoryName">输入新分类名称</string>
+    <string name="ImageCategoryActivitySubmitEdit">提交修改</string>
+    <string name="ImageCategoryActivityInputCategoryPassword">请输入相册密码</string>
+    <string name="ImageCategoryActivityPrivateCategory">私密相册</string>
+    <string name="ImageCategoryActivityNewCategoryName">新相册名称</string>
+    <string name="ImageCategoryActivityTargetName">修改为</string>
+    <string name="ImageCategoryActivityTitle">将</string>
+
+    <string name="NetDiskActivityVideo">视频</string>
+    <string name="NetDiskActivityRecord">通话录音</string>
+    <string name="NetDiskActivityImage">照片</string>
+    <string name="IndexRequestLocationPermission">授予定位权限，开启背景天气</string>
+    <string name="NetDiskActivityRequestPermission">授予存储权限，开启文件备份</string>
+
+</resources>

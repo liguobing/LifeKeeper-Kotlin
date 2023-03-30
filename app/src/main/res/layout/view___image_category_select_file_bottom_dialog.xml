@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/bt_start_upload"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_category___upload_bottom_dialog_start_upload_button_bg"
+            android:text="@string/ImageCategoryActivityStartUploadImage"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/bt_add_except"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_category___upload_bottom_dialog_except_button_bg"
+            android:text="@string/ImageCategoryActivityAddExcept"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/root"
+        android:numColumns="3" />
+
+</RelativeLayout>

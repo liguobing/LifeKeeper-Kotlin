@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    首页走马灯文字-->
+    <declare-styleable name="IndexRotateText">
+        <attr name="android:textSize" />
+        <attr name="android:text" />
+    </declare-styleable>
+
+    <!-- 自定义圆形波浪进度条属性-->
+    <declare-styleable name="CircleWaveProgressSurfaceView">
+        <!--圆形背景颜色-->
+        <attr name="circle_background" format="color" />
+        <!--圆形半径-->
+        <attr name="circle_radius" format="dimension" />
+        <!--深色波浪颜色-->
+        <attr name="dark_wave_color" format="color" />
+        <!--浅色波浪颜色-->
+        <attr name="light_wave_color" format="color" />
+        <!--圆形边框颜色-->
+        <attr name="circle_border_color" format="color" />
+        <!--圆形边框宽度-->
+        <attr name="circle_border_width" format="dimension" />
+        <!--文字颜色-->
+        <attr name="text_color" format="color" />
+        <!--文字尺寸-->
+        <attr name="text_size" format="dimension" />
+        <!--波浪的速度-->
+        <attr name="wave_speed" format="integer" />
+        <!--波浪的高度-->
+        <attr name="wave_height" format="dimension" />
+        <!--是否位于布局中心,系统自带属性-->
+        <attr name="android:layout_centerInParent" />
+        <!--波浪百分比-->
+        <attr name="wave_progress" format="float" />
+        <!--控件背景色-->
+        <attr name="view_background" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomWeatherView">
+        <attr name="weather_code" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgress">
+        <attr name="progress_radius" format="dimension" />
+        <attr name="progress_background_color" format="color" />
+        <attr name="progress_foreground_color" format="color" />
+        <attr name="progress" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="SeparatedEditText">
+        <attr name="password" format="boolean" />
+        <attr name="showCursor" format="boolean" />
+        <attr name="highLightEnable" format="boolean" />
+        <attr name="highLightBefore" format="boolean" />
+        <attr name="separateType" format="reference|integer" />
+        <attr name="maxLength" format="integer" />
+        <attr name="corner" format="dimension" />
+        <attr name="borderColor" format="color|reference" />
+        <attr name="blockColor" format="color|reference" />
+        <attr name="textColor" format="color|reference" />
+        <attr name="highlightColor" format="color|reference" />
+        <attr name="highlightStyle" format="reference|integer" />
+        <attr name="blockSpacing" format="dimension" />
+        <attr name="cursorDuration" format="integer" />
+        <attr name="cursorWidth" format="dimension" />
+        <attr name="cursorColor" format="color|reference" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="showKeyboard" format="boolean" />
+        <attr name="errorColor" format="color|reference" />
+    </declare-styleable>
+
+    <integer name="type_hollow">1</integer>
+
+    <declare-styleable name="LoadingView">
+        <attr name="backgroundColor" format="color|reference" />
+        <attr name="progressWidth" format="integer" />
+        <attr name="progressColor" format="color|reference" />
+    </declare-styleable>
+
+</resources>

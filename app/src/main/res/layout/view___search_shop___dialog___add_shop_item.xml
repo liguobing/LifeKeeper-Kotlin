@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F2F2"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_search_shop_add_new_shop_title"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/et_new_shop_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text"
+        android:layout_marginTop="10dp"
+        android:hint="@string/activity_search_shop_add_new_shop"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#6E6C6C" />
+
+    <Button
+        android:id="@+id/bt_submit_new_shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_new_shop_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bill_shop___add_new_shop___dialog_button"
+        android:text="@string/activity_search_shop_add_new_shop_dialog_submit"
+        android:textColor="@color/BillShopActivity_ToolBar_TextColor" />
+</RelativeLayout>

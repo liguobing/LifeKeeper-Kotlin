@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/AddBillActivity_Background"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <com.lixyz.lifekeeperforkotlin.view.customview.CustomDrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--toolbar-->
+            <android.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/AddBillActivity_ToolBarColor"
+                android:navigationIcon="@drawable/tool_bar___back">
+
+                <TextView
+                    android:id="@+id/tv_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/AddBillActivity_ToolBar_Text"
+                    android:textSize="20sp"
+                    tool:text="收入" />
+            </android.widget.Toolbar>
+
+            <LinearLayout
+                android:id="@+id/money_layout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/toolbar"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_bill_money"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:hint="@string/add_bill_input_money"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:textColorHint="#686868"
+                    android:textSize="50sp" />
+
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/add_bill___bill_image___background">
+
+                    <ImageView
+                        android:id="@+id/img_bill_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/add_bill_image"
+                        android:src="@drawable/add_bill___camera" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_upload_image_progress"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <!--账单分类-->
+            <TextView
+                android:id="@+id/tv_bill_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/money_layout"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:clickable="true"
+                android:divider="@drawable/add_bill___income_divider"
+                android:focusable="true"
+                android:textColor="#686868"
+                android:textSize="25sp"
+                tool:text="收入类别" />
+
+            <!--账单账户-->
+            <TextView
+                android:id="@+id/tv_bill_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_bill_category"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:clickable="true"
+                android:divider="@drawable/add_bill___income_divider"
+                android:focusable="true"
+                android:textColor="#686868"
+                android:textSize="25sp"
+                tool:text="收入账户" />
+
+            <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_bill_account"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+                <!--收入日期-->
+                <Button
+                    android:id="@+id/bt_bill_date"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/add_bill___button_background___date_shop"
+                    android:clickable="true"
+                    android:drawableStart="@drawable/add_bill___date_icon"
+                    android:drawablePadding="5dp"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:textColor="@color/AddBillActivity_Shop_Date_Text"
+                    tool:text="2017-09-01" />
+
+                <!--商家-->
+                <Button
+                    android:id="@+id/bt_bill_shop"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/add_bill___button_background___date_shop"
+                    android:drawableStart="@drawable/add_bill___shop_icon"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/add_bill_shop"
+                    android:textColor="@color/AddBillActivity_Shop_Date_Text" />
+            </LinearLayout>
+
+            <!--账单备注-->
+            <com.lixyz.lifekeeperforkotlin.view.customview.CustomEditText
+                android:id="@+id/et_bill_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="30dp"
+                android:hint="@string/add_bill_remark"
+                android:maxLines="1"
+                android:textSize="20sp"
+                android:theme="@style/NoBottomLineEditText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp">
+
+                <Button
+                    android:id="@+id/bt_clear"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/add_bill___button_background___clear"
+                    android:text="@string/add_bill_reset"
+                    android:textColor="@color/AddBillActivity_Clear_Text" />
+
+                <Button
+                    android:id="@+id/bt_save"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/add_bill___button_background___save"
+                    android:text="@string/add_bill_save"
+                    android:textColor="@color/AddBillActivity_Save_Text" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--后定义侧滑的布局 -->
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/AddBillActivity_Background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_list_view_title"
+                android:layout_width="220dp"
+                android:layout_height="56dp"
+                android:background="@color/AddBillActivity_ToolBarColor"
+                android:gravity="center"
+                android:textColor="@color/AddBillActivity_ToolBar_Text"
+                tool:text="list head" />
+
+            <ListView
+                android:id="@+id/lv_menu"
+                android:layout_width="220dp"
+                android:layout_height="0dp"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:background="@color/AddBillActivity_Background" />
+
+            <Button
+                android:id="@+id/add_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/add_bill___drawer___add_button_background"
+                android:text="@string/add_bill_drawer_add"
+                android:textColor="@color/AddBillActivity_Save_Text" />
+
+        </LinearLayout>
+
+    </com.lixyz.lifekeeperforkotlin.view.customview.CustomDrawerLayout>
+</RelativeLayout>
+

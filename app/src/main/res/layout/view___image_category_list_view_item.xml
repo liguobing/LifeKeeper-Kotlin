@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/img_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:contentDescription="@null"
+        android:src="@drawable/photo" />
+
+    <RelativeLayout
+        android:gravity="center"
+        android:id="@+id/card_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignStart="@id/img_cover"
+        android:layout_alignEnd="@id/img_cover"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"
+        android:padding="5dp">
+
+        <ImageView
+            android:contentDescription="@null"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:id="@+id/image_is_private"
+            android:src="@drawable/image_category___is_private"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/image_is_private"
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </RelativeLayout>
+</RelativeLayout>

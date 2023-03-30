@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/AddBillActivityImageLoading" />
+
+    <ImageView
+        android:id="@+id/img_bill_image_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add_bill_image_dialog_detail" />
+
+    <ImageView
+        android:id="@+id/img_delete_bill_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/img_bill_image_detail"
+        android:layout_alignBottom="@id/img_bill_image_detail"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/add_bill_image_dialog_delete"
+        android:src="@drawable/add_bill___bill_image___dialog___delete_image" />
+</RelativeLayout>

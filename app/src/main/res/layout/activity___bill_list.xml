@@ -1,0 +1,210 @@
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/menu_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <RelativeLayout
+            android:id="@+id/progress_view_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1B82D1">
+
+            <ImageView
+                android:id="@+id/img_open_drawer_menu"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/activity_account_book_drawer_menu_img_button"
+                android:src="@drawable/account_book___layout___open_drawer_menu" />
+
+            <!--圆形波浪进度条-->
+            <com.lixyz.lifekeeperforkotlin.view.customview.CircleWaveProgressSurfaceView
+                android:id="@+id/wave_progress"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="#1B82D1"
+                app:circle_background="#E3F2FD"
+                app:circle_border_color="#f4c28a"
+                app:circle_border_width="5dp"
+                app:circle_radius="40dp"
+                app:dark_wave_color="#BBDEFB"
+                app:light_wave_color="#90CAF9"
+                app:text_color="#000000"
+                app:text_size="20sp"
+                app:view_background="#1B82D1"
+                app:wave_height="5dp"
+                app:wave_speed="2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/wave_progress"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_last_month"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/activity_account_book_last_month"
+                    android:gravity="center"
+                    android:src="@drawable/bill_list___last_month" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_income_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        tool:text="X 月收入" />
+
+                    <TextView
+                        android:id="@+id/tv_income_money_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp"
+                        tool:text="15620" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_expend_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        tool:text="X 月支出" />
+
+                    <TextView
+                        android:id="@+id/tv_expend_money_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp"
+                        tool:text="4620" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/img_next_month"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/activity_account_book_next_month"
+                    android:src="@drawable/bill_list___next_month" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--账本 ListView-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_bills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_view_layout"
+            android:divider="@null" />
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/menu_button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            fab:fab_colorNormal="#FF0000"
+            fab:fab_colorPressed="#00FF00"
+            fab:fab_colorRipple="#62B2FF"
+            tool:ignore="RelativeOverlap">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/menu_add_income_bill_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/account_book___menu___income"
+                fab:fab_colorNormal="#ffffff"
+                fab:fab_label="添加收入" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/menu_add_expend_bill_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/account_book___menu___expend"
+                fab:fab_colorNormal="#FFFFFF"
+                fab:fab_label="添加支出"
+                fab:fab_size="normal" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+    </RelativeLayout>
+
+    <!--后定义侧滑的布局 -->
+    <LinearLayout
+        android:id="@+id/drawer_view"
+        android:layout_width="220dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/account_book___drawer_menu___background"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:id="@+id/tv_menu_item_bill_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/activity_account_book_drawer_category"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_menu_item_bill_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/activity_account_book_drawer_account"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_menu_item_chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/activity_account_book_drawer_chart"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="@string/inputYourCode"
+        android:textSize="20sp" />
+
+    <com.lixyz.lifekeeperforkotlin.view.customview.SeparatedEditText
+        android:id="@+id/se_verify_code"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="number"
+        app:borderColor="@color/lightGrey"
+        app:corner="10dp"
+        app:cursorColor="@android:color/holo_orange_light"
+        app:cursorWidth="3dp"
+        app:maxLength="6"
+        app:separateType="@integer/type_hollow"
+        app:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/bt_verify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/login___button___background"
+        android:text="@string/verify" />
+
+</LinearLayout>

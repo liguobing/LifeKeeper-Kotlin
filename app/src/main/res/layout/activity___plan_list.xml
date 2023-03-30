@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/PlanListActivityBackgroundColor">
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/PlanListActivityTitle"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_date_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_plans"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@id/rv_date_menu"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" />
+
+
+    <TextView
+        android:id="@+id/tv_oops"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:drawableTop="@drawable/plan_list___oops"
+        android:drawablePadding="20dp"
+        android:text="@string/PlanListActivityNoPlan"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/plan_list___date_and_today_button_background"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textColor="#ffffff"
+        tools:text="2020-02-02" />
+
+    <TextView
+        android:id="@+id/tv_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_toEndOf="@id/tv_date"
+        android:visibility="gone"
+        android:background="@drawable/plan_list___date_and_today_button_background"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/PlanListActivityToday"
+        android:textColor="#ffffff" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/plan_list___add_plan" />
+
+</RelativeLayout>

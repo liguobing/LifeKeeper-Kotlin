@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8F7">
+
+    <!--    Toolbar布局-->
+    <LinearLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#F7F8F7"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/main_img_cancel"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="30dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/add_plan___cancel" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/add_plan"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/main_img_save_plan"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/save_plan_btn"
+            android:src="@drawable/add_plan___save_plan_btn" />
+
+    </LinearLayout>
+
+    <!--    Event Title 布局-->
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_layout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#F7F8F7">
+
+        <EditText
+            android:id="@+id/et_plan_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@null"
+            android:background="@drawable/add_plan____plan_title_background"
+            android:hint="@string/AddPlanActivityPlanTitleHint"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingEnd="@null"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_layout"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="#EDEDED"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="#F7F8F7"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+            <!--        全天开关-->
+            <LinearLayout
+                android:id="@+id/all_day_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F8F7"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:text="@string/AddPlanActivityAllDayTitle"
+                    android:textSize="18sp" />
+                <Switch
+                    android:id="@+id/sw_all_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="end"
+                    android:thumb="@drawable/thumb"
+                    android:track="@drawable/track"/>
+
+<!--                <androidx.appcompat.widget.SwitchCompat-->
+<!--                    android:id="@+id/sw_all_day"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="false"-->
+<!--                    android:focusable="false"-->
+<!--                    android:gravity="end"-->
+<!--                    android:thumb="@drawable/thumb"-->
+<!--                    android:track="@drawable/track" />-->
+            </LinearLayout>
+
+
+            <!--        开始日期 -->
+            <LinearLayout
+                android:id="@+id/start_date_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F8F7"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/AddPlanActivityStartDateTitle"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_start_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="end"
+                    android:textSize="15sp"
+                    tool:text="2020-01-01 00:00:01" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/AddPlanActivityArrows" />
+            </LinearLayout>
+
+            <!--        开始时间 -->
+            <LinearLayout
+                android:id="@+id/start_time_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F8F7"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/AddPlanActivityStartTimeTitle"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_start_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="end"
+                    android:textSize="15sp"
+                    tool:text="2020-01-01 00:00:01" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/AddPlanActivityArrows" />
+            </LinearLayout>
+
+            <!--        重复-->
+            <LinearLayout
+                android:id="@+id/repeat_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F8F7"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AddPlanActivityRepeatTitle"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_repeat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="end"
+                    android:text="@string/AddPlanActivityOneTimePlan"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/AddPlanActivityArrows" />
+            </LinearLayout>
+            <!--结束重复-->
+            <LinearLayout
+                android:id="@+id/repeat_over_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F8F7"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AddPlanActivityRepeatOverTitle"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_repeat_over"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="end"
+                    android:text="@string/AddPlanActivityRepeatOverDefaultCount"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/AddPlanActivityArrows" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:background="#F7F8F7"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:id="@+id/alarm_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F8F7"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AddPlanActivityAlarmTitle"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_alarm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="end"
+                    android:text="@string/AddPlanActivityAlarmDefaultNotNotification"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/AddPlanActivityArrows" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/alarm_switch_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F8F7"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:text="@string/AddPlanActivityAlarmSwitchTitle"
+                    android:textSize="18sp" />
+
+                <Switch
+                    android:id="@+id/sw_alarm_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="end"
+                    android:thumb="@drawable/thumb"
+                    android:track="@drawable/track" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_layout"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="#F7F8F7">
+
+        <EditText
+            android:id="@+id/et_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@null"
+            android:background="@drawable/add_plan____plan_title_background"
+            android:hint="@string/AddPlanActivityLocationHint"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_location"
+            android:layout_marginTop="10dp"
+            android:autofillHints="@null"
+            android:background="@drawable/add_plan____plan_title_background"
+            android:hint="@string/AddPlanActivityDescriptionHint"
+            android:inputType="text"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:textSize="20sp" />
+    </RelativeLayout>
+</RelativeLayout>
