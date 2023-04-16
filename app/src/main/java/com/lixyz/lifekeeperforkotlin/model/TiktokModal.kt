@@ -1,17 +1,12 @@
 package com.lixyz.lifekeeperforkotlin.model
 
 import android.content.Context
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.lixyz.lifekeeperforkotlin.bean.NewResult
 import com.lixyz.lifekeeperforkotlin.bean.video.PageVideoBean
-import com.lixyz.lifekeeperforkotlin.net.https.HttpsUtil
-import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
-import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.util.concurrent.TimeUnit
 
 class TiktokModal {
     fun getVideos(context: Context, categoryId: String, password: String): PageVideoBean? {

@@ -2,15 +2,12 @@ package com.lixyz.lifekeeperforkotlin.model
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.lixyz.lifekeeperforkotlin.bean.NewResult
 import com.lixyz.lifekeeperforkotlin.bean.netdisk.NetDiskOverview
 import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
-import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.util.concurrent.TimeUnit
 
 
 class NetDiskModel {

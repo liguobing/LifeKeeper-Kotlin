@@ -1,7 +1,5 @@
 package com.lixyz.lifekeeperforkotlin.utils;
 
-import android.util.Log;
-
 import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.util.ArrayList;

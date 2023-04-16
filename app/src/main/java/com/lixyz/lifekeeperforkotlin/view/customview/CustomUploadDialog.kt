@@ -1,17 +1,13 @@
 package com.lixyz.lifekeeperforkotlin.view.customview
 
 import android.animation.Animator
-import android.animation.AnimatorInflater
 import android.animation.ValueAnimator
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.view.View
-import android.view.View.VISIBLE
 import android.view.Window
 import android.view.WindowManager
-import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import com.daimajia.numberprogressbar.NumberProgressBar

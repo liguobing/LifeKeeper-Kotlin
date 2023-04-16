@@ -8,7 +8,6 @@ import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
@@ -22,13 +21,11 @@ import com.lixyz.lifekeeperforkotlin.utils.FileUtil
 import com.lixyz.lifekeeperforkotlin.utils.MIMEUtil
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import java.io.InputStream
 import java.lang.reflect.Type
-import java.util.concurrent.TimeUnit
 
 
 class DisplayImageModel {

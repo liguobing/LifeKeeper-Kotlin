@@ -11,11 +11,9 @@ import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
 import com.lixyz.lifekeeperforkotlin.utils.StringUtil
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 
 /**

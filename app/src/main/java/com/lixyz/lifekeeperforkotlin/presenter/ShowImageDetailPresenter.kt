@@ -1,7 +1,6 @@
 package com.lixyz.lifekeeperforkotlin.presenter
 
 import android.content.Context
-import android.os.Build
 import com.lixyz.lifekeeperforkotlin.base.BaseThreadFactory
 import com.lixyz.lifekeeperforkotlin.bean.netdisk.image.ImageBean
 import com.lixyz.lifekeeperforkotlin.bean.netdisk.image.ImageCategoryBean

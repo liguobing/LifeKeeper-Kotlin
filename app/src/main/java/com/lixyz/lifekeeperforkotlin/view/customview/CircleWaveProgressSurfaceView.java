@@ -13,17 +13,14 @@ import android.graphics.Region;
 import android.os.Build;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.lixyz.lifekeeperforkotlin.utils.ColorUtil;
 import com.lixyz.lifekeeperforkotlin.R;
 
 import java.text.DecimalFormat;
-import java.util.Random;
 
 /**
  * 圆形波浪进度条

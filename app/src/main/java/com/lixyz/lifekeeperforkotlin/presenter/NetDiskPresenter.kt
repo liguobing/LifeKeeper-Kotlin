@@ -2,9 +2,13 @@ package com.lixyz.lifekeeperforkotlin.presenter
 
 import android.content.Context
 import com.lixyz.lifekeeperforkotlin.base.BaseThreadFactory
+import com.lixyz.lifekeeperforkotlin.bean.netdisk.NetDiskOverview
 import com.lixyz.lifekeeperforkotlin.model.NetDiskModel
 import com.lixyz.lifekeeperforkotlin.view.activity.INetDiskView
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import java.io.File
+import java.lang.Thread.sleep
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
@@ -38,52 +42,22 @@ class NetDiskPresenter(private var view: INetDiskView) {
     }
 
     @kotlin.jvm.Throws(Exception::class)
-    fun getNetDiskData(context: Context) {
-        threadPool.execute {
-            val netDiskData = model.getNetDiskData(context)
-            if (netDiskData == null) {
-                view.showSnackBar("出错啦，请稍后重试...")
-            } else {
-                view.updateImageCardData(netDiskData.imageCount)
-                view.updatePhoneRecordCardData(netDiskData.recordCount)
-                view.updateVideoCardData(netDiskData.videoCount)
-            }
-        }
+    fun getNetDiskData(context: Context): NetDiskOverview? {
+        return model.getNetDiskData(context)
     }
 
     @kotlin.jvm.Throws(Exception::class)
-    fun loadImageData(context: Context) {
-        threadPool.execute {
-            val imageCount = model.getImageCount(context)
-            if (imageCount >= 0) {
-                view.updateImageCardData(imageCount)
-            } else {
-                view.showSnackBar("图片载入出错，请稍后重试...")
-            }
-        }
+    fun loadImageData(context: Context): Int {
+        return model.getImageCount(context)
     }
 
     @kotlin.jvm.Throws(Exception::class)
-    fun loadPhoneRecordData(context: Context) {
-        threadPool.execute {
-            val phoneRecordCount = model.getPhoneRecordCount(context)
-            if (phoneRecordCount >= 0) {
-                view.updatePhoneRecordCardData(phoneRecordCount)
-            } else {
-                view.showSnackBar("电话录音载入出错，请稍后重试...")
-            }
-        }
+    fun loadPhoneRecordData(context: Context): Int {
+        return model.getPhoneRecordCount(context)
     }
 
     @kotlin.jvm.Throws(Exception::class)
-    fun loadVideoData(context: Context) {
-        threadPool.execute {
-            val videoCount = model.getVideoCount(context)
-            if (videoCount >= 0) {
-                view.updateVideoCardData(videoCount)
-            } else {
-                view.showSnackBar("视频载入出错，请稍后重试...")
-            }
-        }
+    fun loadVideoData(context: Context): Int {
+        return model.getVideoCount(context)
     }
 }

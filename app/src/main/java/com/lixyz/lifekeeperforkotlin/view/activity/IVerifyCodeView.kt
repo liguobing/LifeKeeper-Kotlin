@@ -1,7 +1,6 @@
 package com.lixyz.lifekeeperforkotlin.view.activity
 
 import android.view.View
-import java.security.MessageDigest
 
 interface IVerifyCodeView {
     fun startErrorAnimation(view: View)

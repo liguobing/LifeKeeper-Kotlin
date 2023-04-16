@@ -20,6 +20,7 @@ import com.lixyz.lifekeeperforkotlin.base.BaseActivity
 import com.lixyz.lifekeeperforkotlin.presenter.NetDiskPresenter
 import com.lixyz.lifekeeperforkotlin.view.customview.CustomDialog
 import com.lixyz.lifekeeperforkotlin.view.customview.CustomUploadDialog
+import kotlinx.coroutines.*
 import java.lang.ref.WeakReference
 
 
@@ -119,13 +120,32 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
 
     override fun onResume() {
         super.onResume()
-        try {
-            if (needRequestData) {
-                presenter!!.getNetDiskData(this)
-                needRequestData = false
+        if (needRequestData) {
+            MainScope().launch(Dispatchers.IO) {
+                val data = presenter!!.getNetDiskData(this@NetDiskActivity)
+                withContext(Dispatchers.Main) {
+                    if (data == null) {
+                        Snackbar.make(tvImageCount!!, "出错啦，请稍候重试", Snackbar.LENGTH_SHORT).show()
+                    } else {
+                        tvImageCount!!.text = data.imageCount.toString()
+                        tvImageCount!!.visibility = View.VISIBLE
+                        imgImageLoading!!.clearAnimation()
+                        imgImageLoading!!.visibility = View.GONE
+
+                        tvVideoCount!!.text = data.videoCount.toString()
+                        tvVideoCount!!.visibility = View.VISIBLE
+                        imgVideoLoading!!.clearAnimation()
+                        imgVideoLoading!!.visibility = View.GONE
+
+                        tvRecordCount!!.text = data.recordCount.toString()
+                        tvRecordCount!!.visibility = View.VISIBLE
+                        imgRecordLoading!!.clearAnimation()
+                        imgRecordLoading!!.visibility = View.GONE
+
+                        needRequestData = false
+                    }
+                }
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 
@@ -149,8 +169,8 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
         if (notGetPermissionList.size > 0) {
             val bottomDialog = Dialog(this, R.style.BottomDialog)
             val contentView: View = LayoutInflater.from(this).inflate(
-                    R.layout.view___netdisk___request_permission, RelativeLayout(this), false
-                )
+                R.layout.view___netdisk___request_permission, RelativeLayout(this), false
+            )
             val cancel = contentView.findViewById<Button>(R.id.bt_cancel_request)
             val startRequest = contentView.findViewById<Button>(R.id.bt_start_request)
             cancel.setOnClickListener {
@@ -197,13 +217,37 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
-            presenter!!.loadImageData(this)
+            MainScope().launch(Dispatchers.IO) {
+                val count = presenter!!.loadImageData(this@NetDiskActivity)
+                withContext(Dispatchers.Main) {
+                    tvImageCount!!.text = count.toString()
+                    tvImageCount!!.visibility = View.VISIBLE
+                    imgImageLoading!!.clearAnimation()
+                    imgImageLoading!!.visibility = View.GONE
+                }
+            }
         }
         if (requestCode == PHONE_RECORD_REQUEST_CODE && resultCode == RESULT_OK) {
-            presenter!!.loadPhoneRecordData(this)
+            MainScope().launch(Dispatchers.IO) {
+                val count = presenter!!.loadPhoneRecordData(this@NetDiskActivity)
+                withContext(Dispatchers.Main) {
+                    tvRecordCount!!.text = count.toString()
+                    tvRecordCount!!.visibility = View.VISIBLE
+                    imgRecordLoading!!.clearAnimation()
+                    imgRecordLoading!!.visibility = View.GONE
+                }
+            }
         }
         if (requestCode == VIDEO_REQUEST_CODE && resultCode == RESULT_OK) {
-            presenter!!.loadVideoData(this)
+            MainScope().launch(Dispatchers.IO) {
+                val count = presenter!!.loadVideoData(this@NetDiskActivity)
+                withContext(Dispatchers.Main) {
+                    tvVideoCount!!.text = count.toString()
+                    tvVideoCount!!.visibility = View.VISIBLE
+                    imgVideoLoading!!.clearAnimation()
+                    imgVideoLoading!!.visibility = View.GONE
+                }
+            }
         }
 
         if (requestCode == ALL_FILE_PERMISSION_REQUEST_CODE) {

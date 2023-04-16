@@ -3,7 +3,6 @@ package com.lixyz.lifekeeperforkotlin.view.activity
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,6 @@ import okhttp3.Call
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.concurrent.TimeUnit
-import javax.net.ssl.HostnameVerifier
 
 class ImageDetailFragment(
     private val bean: ImageBean,

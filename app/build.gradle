@@ -95,6 +95,7 @@ android {
 
 buildscript {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
         google()
         mavenCentral()
         //为添加知乎 Matisse 添加
@@ -107,12 +108,15 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:7.3.1"
     }
+
+    ext.kotlin_coroutines = '1.4.0'
 }
 
 allprojects {
     repositories {
-        jcenter()
-        google()
+//        jcenter()
+//        google()
+        maven { url 'https://maven.aliyun.com/repository/public/' }
         mavenCentral()
         //为添加知乎 Matisse 添加
         maven { url 'https://jitpack.io' }
@@ -232,6 +236,4 @@ dependencies {
     implementation 'com.getui:gtc:3.2.1.0'  //个推核心组件
     //    友测
     implementation 'com.github.YoTest-team:YoTest-Android-SDK:1.0.4'
-
-    implementation project(":MoudleTest")
 }

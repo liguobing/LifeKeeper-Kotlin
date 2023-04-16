@@ -9,7 +9,6 @@ import com.amap.api.services.core.LatLonPoint
 import com.amap.api.services.core.PoiItem
 import com.amap.api.services.poisearch.PoiResult
 import com.amap.api.services.poisearch.PoiSearch
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.lixyz.lifekeeperforkotlin.bean.NewResult
 import com.lixyz.lifekeeperforkotlin.bean.billshop.BillShop
@@ -18,11 +17,9 @@ import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
 import com.lixyz.lifekeeperforkotlin.utils.StringUtil
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 
 /**

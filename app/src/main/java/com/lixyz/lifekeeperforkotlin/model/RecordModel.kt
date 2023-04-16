@@ -1,6 +1,5 @@
 package com.lixyz.lifekeeperforkotlin.model
 
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
@@ -10,11 +9,9 @@ import com.lixyz.lifekeeperforkotlin.bean.phonerecord.RecordBean
 import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.lang.reflect.Type
-import java.util.concurrent.TimeUnit
 
 class RecordModel {
     fun getRecords(

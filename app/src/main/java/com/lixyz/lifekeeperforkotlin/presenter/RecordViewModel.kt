@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.os.Environment
 import android.text.TextUtils
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.facebook.stetho.okhttp3.StethoInterceptor

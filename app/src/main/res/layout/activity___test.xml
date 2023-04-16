@@ -5,11 +5,22 @@
     android:background="@color/AddBillActivity_Save"
     android:orientation="vertical">
 
-    <com.lixyz.lifekeeperforkotlin.test.SignView
+    <Button
         android:id="@+id/start"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:text="start" />
-    
+
+    <Button
+        android:id="@+id/bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bind" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 </LinearLayout>

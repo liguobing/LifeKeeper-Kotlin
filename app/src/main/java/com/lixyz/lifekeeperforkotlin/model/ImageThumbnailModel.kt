@@ -2,7 +2,6 @@ package com.lixyz.lifekeeperforkotlin.model
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
@@ -11,15 +10,12 @@ import com.lixyz.lifekeeperforkotlin.bean.netdisk.image.ImageBean
 import com.lixyz.lifekeeperforkotlin.bean.netdisk.image.ImageCategoryBean
 import com.lixyz.lifekeeperforkotlin.bean.photo.MoveImageBean
 import com.lixyz.lifekeeperforkotlin.bean.photo.PageImageBean
-import com.lixyz.lifekeeperforkotlin.net.https.HttpsUtil
 import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.lang.reflect.Type
-import java.util.concurrent.TimeUnit
 
 
 class ImageThumbnailModel {

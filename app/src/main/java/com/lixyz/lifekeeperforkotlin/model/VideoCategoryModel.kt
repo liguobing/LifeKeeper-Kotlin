@@ -1,7 +1,6 @@
 package com.lixyz.lifekeeperforkotlin.model
 
 import android.content.Context
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
@@ -16,7 +15,6 @@ import com.lixyz.lifekeeperforkotlin.utils.StringUtil
 import com.lixyz.lifekeeperforkotlin.view.activity.IVideoCategoryView
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -27,7 +25,6 @@ import java.lang.reflect.Type
 import java.math.BigInteger
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
-import java.util.concurrent.TimeUnit
 
 class VideoCategoryModel {
 

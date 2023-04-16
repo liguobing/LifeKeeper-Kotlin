@@ -5,13 +5,10 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lixyz.lifekeeperforkotlin.bean.Result
 import com.lixyz.lifekeeperforkotlin.bean.plan.PlanBean
-import com.lixyz.lifekeeperforkotlin.net.https.HttpsUtil
 import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.lang.reflect.Type
-import java.util.concurrent.TimeUnit
 
 
 /**

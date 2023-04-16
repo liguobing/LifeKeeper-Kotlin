@@ -6,17 +6,14 @@ import android.widget.EditText
 import com.google.gson.Gson
 import com.lixyz.lifekeeperforkotlin.bean.NewResult
 import com.lixyz.lifekeeperforkotlin.bean.UserBean
-import com.lixyz.lifekeeperforkotlin.net.https.HttpsUtil
 import com.lixyz.lifekeeperforkotlin.utils.Constant
 import com.lixyz.lifekeeperforkotlin.utils.OKHttpUtil
 import com.lixyz.lifekeeperforkotlin.utils.StringUtil
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
-import java.util.concurrent.TimeUnit
 
 class RegisterModel {
 

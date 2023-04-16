@@ -2,12 +2,10 @@ package com.lixyz.lifekeeperforkotlin.presenter
 
 import android.content.Context
 import android.os.Environment
-import android.util.Log
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.lixyz.lifekeeperforkotlin.base.BaseThreadFactory
 import com.lixyz.lifekeeperforkotlin.bean.NewResult
-import com.lixyz.lifekeeperforkotlin.bean.phonerecord.RecordRecyclerViewItemBean
 import com.lixyz.lifekeeperforkotlin.net.CountingRequestBody
 import com.lixyz.lifekeeperforkotlin.net.https.HttpsUtil
 import com.lixyz.lifekeeperforkotlin.utils.Constant

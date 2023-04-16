@@ -7,7 +7,6 @@ import com.google.android.exoplayer2.ext.okhttp.OkHttpDataSourceFactory
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.util.Util
-import com.lixyz.lifekeeperforkotlin.net.https.HttpsUtil
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 

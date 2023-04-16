@@ -6,7 +6,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +13,7 @@ import android.view.animation.AnimationUtils
 import android.view.animation.RotateAnimation
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
@@ -39,7 +39,6 @@ import com.lixyz.lifekeeperforkotlin.utils.StatusBarUtil
 import com.lixyz.lifekeeperforkotlin.view.customview.CustomDialog
 import com.lixyz.lifekeeperforkotlin.view.customview.CustomWeatherView
 import com.lixyz.lifekeeperforkotlin.worker.WakeWorker
-import com.lixyz.moudletest.MoudleMainActivity
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.*
 
@@ -362,14 +361,13 @@ class IndexActivity : BaseActivity(), View.OnClickListener, IIndexView, AMapLoca
             }
             //用户头像和用户名
             R.id.image_user_icon, R.id.tv_user_name -> {
-//                val userIntent = Intent(this, UserCenterActivity::class.java)
-//                val options = ActivityOptionsCompat
-//                    .makeSceneTransitionAnimation(
-//                        this,
-//                        imgUserIcon!!, "UserIcon"
-//                    )
-//                startActivity(userIntent, options.toBundle())
-                val intent = Intent(this, MoudleMainActivity::class.java)
+                val userIntent = Intent(this, UserCenterActivity::class.java)
+                val options = ActivityOptionsCompat
+                    .makeSceneTransitionAnimation(
+                        this,
+                        imgUserIcon!!, "UserIcon"
+                    )
+                startActivity(userIntent, options.toBundle())
                 startActivity(intent)
             }
             //注册链接

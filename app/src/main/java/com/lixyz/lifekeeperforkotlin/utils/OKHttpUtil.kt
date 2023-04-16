@@ -1,7 +1,6 @@
 package com.lixyz.lifekeeperforkotlin.utils
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.lixyz.lifekeeperforkotlin.net.https.HttpsUtil
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 
