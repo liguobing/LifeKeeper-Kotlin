@@ -108,4 +108,28 @@ class NetDiskModel {
             return -1
         }
     }
+
+    fun getWeChatRecordCount(context: Context): Int {
+        try {
+            val client = OKHttpUtil.getInstance
+            val request = Request.Builder()
+                .url("${Constant.CLOUD_ADDRESS}/LifeKeeper/GetWeChatRecordCountByUserId")
+                .addHeader("Token", getUserId(context)!!)
+                .build()
+            val response = client.newCall(request).execute()
+            val result = Gson().fromJson(
+                response.body!!.string(),
+                NewResult::class.java
+            )
+            return if (result.result) {
+                Gson().fromJson(Gson().toJson(result.resultObject), Int::class.java)
+            } else {
+                -1
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return -1
+        }
+
+    }
 }

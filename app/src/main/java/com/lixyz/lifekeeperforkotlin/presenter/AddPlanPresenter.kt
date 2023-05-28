@@ -58,6 +58,7 @@ class AddPlanPresenter(
             calendar.get(Calendar.DAY_OF_MONTH)
         ) else "0" + calendar.get(Calendar.DAY_OF_MONTH)
         val week = weeks[calendar.get(Calendar.DAY_OF_WEEK) - 1]
+        
         return year + "年" + month + "月" + day + "日 " + week
     }
 

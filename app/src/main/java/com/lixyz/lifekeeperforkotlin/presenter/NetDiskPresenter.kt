@@ -5,10 +5,7 @@ import com.lixyz.lifekeeperforkotlin.base.BaseThreadFactory
 import com.lixyz.lifekeeperforkotlin.bean.netdisk.NetDiskOverview
 import com.lixyz.lifekeeperforkotlin.model.NetDiskModel
 import com.lixyz.lifekeeperforkotlin.view.activity.INetDiskView
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import java.io.File
-import java.lang.Thread.sleep
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
@@ -54,6 +51,10 @@ class NetDiskPresenter(private var view: INetDiskView) {
     @kotlin.jvm.Throws(Exception::class)
     fun loadPhoneRecordData(context: Context): Int {
         return model.getPhoneRecordCount(context)
+    }
+    @kotlin.jvm.Throws(Exception::class)
+    fun loadWeChatRecordData(context: Context): Int {
+        return model.getWeChatRecordCount(context)
     }
 
     @kotlin.jvm.Throws(Exception::class)

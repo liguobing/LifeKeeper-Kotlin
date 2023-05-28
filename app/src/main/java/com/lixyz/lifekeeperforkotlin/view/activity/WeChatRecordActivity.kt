@@ -50,22 +50,34 @@ import com.google.android.exoplayer2.PlaybackParameters
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.lixyz.lifekeeperforkotlin.R
-import com.lixyz.lifekeeperforkotlin.bean.phonerecord.ContactBean
-import com.lixyz.lifekeeperforkotlin.bean.phonerecord.PlayerStateValue
-import com.lixyz.lifekeeperforkotlin.bean.phonerecord.RecordBean
-import com.lixyz.lifekeeperforkotlin.presenter.RecordViewModel
+import com.lixyz.lifekeeperforkotlin.bean.phonerecord.*
+import com.lixyz.lifekeeperforkotlin.presenter.WeChatRecordViewModel
 import com.lixyz.lifekeeperforkotlin.utils.PlayVideoDataSource
-import kotlinx.android.synthetic.main.activity___net_disk.*
-import kotlinx.android.synthetic.main.dialog_paste.*
 import kotlinx.coroutines.launch
-import java.util.*
 
-
-class RecordActivity : AppCompatActivity(), IRecordView {
-
-    private var viewModel: RecordViewModel? = null
+class WeChatRecordActivity : AppCompatActivity(), IWeChatRecordView {
+    private var viewModel: WeChatRecordViewModel? = null
 
     private var player: SimpleExoPlayer? = null
+
+    private var waitDialogState: MutableState<Boolean>? = null
+    private var contactItemList: MutableList<ContactItem>? = null
+    private var recordList: MutableList<RecordItem>? = null
+
+    @OptIn(ExperimentalMaterialApi::class)
+    private var playerModalState: ModalBottomSheetState? = null
+
+    private var playerState: MutableState<PlayerStateValue>? = null
+    private var playerSpeedState: MutableState<Float>? = null
+
+    private var editableState: MutableState<Boolean>? = null
+
+    private var playingContactNameState: MutableState<String>? = null
+    private var callTimeState: MutableState<String>? = null
+
+    //底部上传模态框显示状态
+    @OptIn(ExperimentalMaterialApi::class)
+    private var uploadModalVisibleState: ModalBottomSheetState? = null
 
     @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +91,7 @@ class RecordActivity : AppCompatActivity(), IRecordView {
             startActivity(intent)
         }
 
-        viewModel = viewModelProvider[RecordViewModel::class.java]
+        viewModel = viewModelProvider[WeChatRecordViewModel::class.java]
         viewModel!!.fileToSQLite(this)
         viewModel!!.getContactNames(this)
         setContent {
@@ -103,25 +115,6 @@ class RecordActivity : AppCompatActivity(), IRecordView {
         setResult(RESULT_OK)
         finish()
     }
-
-
-    //底部上传模态框显示状态
-    @OptIn(ExperimentalMaterialApi::class)
-    private var uploadModalVisibleState: ModalBottomSheetState? = null
-
-    @OptIn(ExperimentalMaterialApi::class)
-    private var playerModalState: ModalBottomSheetState? = null
-
-    private var playingContactNameState: MutableState<String>? = null
-    private var callTimeState: MutableState<String>? = null
-    private var playerState: MutableState<PlayerStateValue>? = null
-    private var playerSpeedState: MutableState<Float>? = null
-    private var recordList: MutableList<RecordItem>? = null
-
-    private var editableState: MutableState<Boolean>? = null
-    private var contactItemList: MutableList<ContactItem>? = null
-    private var waitDialogState: MutableState<Boolean>? = null
-
 
     @ExperimentalAnimationApi
     @OptIn(
@@ -152,7 +145,12 @@ class RecordActivity : AppCompatActivity(), IRecordView {
         viewModel!!.contactLiveData!!.observe(this) {
             contactItemList!!.clear()
             it.forEachIndexed { _, contactBean ->
-                contactItemList!!.add(ContactItem(contactBean, mutableStateOf(false)))
+                contactItemList!!.add(
+                    ContactItem(
+                        contactBean,
+                        mutableStateOf(false)
+                    )
+                )
             }
         }
         //录音
@@ -287,7 +285,10 @@ class RecordActivity : AppCompatActivity(), IRecordView {
                                             }
                                         }
                                         waitDialogState!!.value = true
-                                        viewModel!!.deleteContact(this@RecordActivity, checkList)
+                                        viewModel!!.deleteContact(
+                                            this@WeChatRecordActivity,
+                                            checkList
+                                        )
                                     }
                             )
                             Icon(
@@ -336,7 +337,7 @@ class RecordActivity : AppCompatActivity(), IRecordView {
                                     playingContactNameState!!.value = it.contactBean.contactName
                                     waitDialogState!!.value = true
                                     viewModel!!.getRecords(
-                                        this@RecordActivity,
+                                        this@WeChatRecordActivity,
                                         it.contactBean.contactId
                                     )
                                 }
@@ -451,7 +452,7 @@ class RecordActivity : AppCompatActivity(), IRecordView {
                                     checkedList.add(needUploadItem.fileName)
                                 }
                             }
-                            viewModel!!.uploadRecordFile(this@RecordActivity, checkedList)
+                            viewModel!!.uploadRecordFile(this@WeChatRecordActivity, checkedList)
                         }) {
                             Text(text = "上传")
                         }
@@ -465,7 +466,7 @@ class RecordActivity : AppCompatActivity(), IRecordView {
                                     checkedList.add(needUploadItem.fileName)
                                 }
                             }
-                            viewModel!!.deleteRecordFile(this@RecordActivity, checkedList)
+                            viewModel!!.deleteRecordFile(this@WeChatRecordActivity, checkedList)
                         }) {
                             Text(text = "删除")
                         }
@@ -475,7 +476,6 @@ class RecordActivity : AppCompatActivity(), IRecordView {
                         modifier = Modifier.padding(0.dp, 50.dp),
                         content = {
                             items(localFileList) {
-                                Log.d("TTT", "MainCard: ${localFileList.size}")
                                 Row(
                                     horizontalArrangement = Arrangement.Center,//设置水平居中对齐
                                     verticalAlignment = Alignment.CenterVertically
@@ -692,10 +692,10 @@ class RecordActivity : AppCompatActivity(), IRecordView {
                                     playerSpeedState!!.value = 1f
 
                                     val url =
-                                        "https://www.li-xyz.com/LifeKeeper/resource/LifeKeeperCallRecord/${recordList!![0].record.recordUser}/${recordList!![0].record.sourceFileName}"
+                                        "https://www.li-xyz.com/LifeKeeper/resource/LifeKeeperWeChatRecord/${recordList!![0].record.recordUser}/${recordList!![0].record.sourceFileName}"
                                     player = getPlayer()
                                     val dataSourceFactory =
-                                        PlayVideoDataSource(this@RecordActivity).dataSourceFactory
+                                        PlayVideoDataSource(this@WeChatRecordActivity).dataSourceFactory
                                     val source = ProgressiveMediaSource
                                         .Factory(dataSourceFactory)
                                         .createMediaSource(Uri.parse(url))
@@ -739,10 +739,6 @@ class RecordActivity : AppCompatActivity(), IRecordView {
         }
     }
 
-    private var playerPlayingIndex = 0
-
-
-    //电话录音
     @Composable
     fun RecordItemCard(
         recordItem: RecordItem,
@@ -826,10 +822,10 @@ class RecordActivity : AppCompatActivity(), IRecordView {
                         playerSpeedState!!.value = 1f
 
                         val url =
-                            "https://www.li-xyz.com/LifeKeeper/resource/LifeKeeperCallRecord/${recordItem.record.recordUser}/${recordItem.record.sourceFileName}"
+                            "https://www.li-xyz.com/LifeKeeper/resource/LifeKeeperWeChatRecord/${recordItem.record.recordUser}/${recordItem.record.sourceFileName}"
                         player = getPlayer()
                         val dataSourceFactory =
-                            PlayVideoDataSource(this@RecordActivity).dataSourceFactory
+                            PlayVideoDataSource(this@WeChatRecordActivity).dataSourceFactory
                         val source = ProgressiveMediaSource
                             .Factory(dataSourceFactory)
                             .createMediaSource(Uri.parse(url))
@@ -851,7 +847,6 @@ class RecordActivity : AppCompatActivity(), IRecordView {
         }
     }
 
-
     private fun getPlayer(): SimpleExoPlayer {
         if (player == null) {
             player = SimpleExoPlayer.Builder(this).build()
@@ -859,7 +854,9 @@ class RecordActivity : AppCompatActivity(), IRecordView {
         return player as SimpleExoPlayer
     }
 
+    private var playerPlayingIndex = 0
+
     data class NeedUploadItem(var fileName: String, var check: MutableState<Boolean>)
-    data class RecordItem(var record: RecordBean, var checked: Boolean)
-    data class ContactItem(var contactBean: ContactBean, var checked: MutableState<Boolean>)
+    data class RecordItem(var record: WeChatRecordBean, var checked: Boolean)
+    data class ContactItem(var contactBean: WeChatRecordContactBean, var checked: MutableState<Boolean>)
 }

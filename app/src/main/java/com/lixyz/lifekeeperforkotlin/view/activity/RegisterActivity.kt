@@ -49,6 +49,8 @@ class RegisterActivity : BaseActivity(), View.OnClickListener, IRegisterView {
     override fun onStart() {
         super.onStart()
         initListener()
+
+
     }
 
     override fun initWidget() {

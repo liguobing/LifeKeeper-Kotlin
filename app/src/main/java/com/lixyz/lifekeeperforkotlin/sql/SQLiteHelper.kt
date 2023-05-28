@@ -27,6 +27,8 @@ class SQLiteHelper(
         db.execSQL(CREATE_PLAN_TABLE)
 
         db.execSQL(CREATE_RECORD)
+
+        db.execSQL(CREATE_WECHAT_RECORD)
     }
 
     override fun onUpgrade(
@@ -38,6 +40,7 @@ class SQLiteHelper(
 
     companion object {
         private const val CREATE_RECORD = "create table if not exists PhoneRecord(FileName text,ContactName text)"
+        private const val CREATE_WECHAT_RECORD = "create table if not exists WeChatRecord(FileName text,ContactName text)"
 
         private const val CREATE_BILL = "create table if not exists Bill(" +
                 "ObjectId text primary key," +  //唯一标识

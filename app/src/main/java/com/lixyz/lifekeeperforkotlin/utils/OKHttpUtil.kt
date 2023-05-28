@@ -15,7 +15,7 @@ class OKHttpUtil {
             OkHttpClient.Builder().addNetworkInterceptor(
                 StethoInterceptor()
             )
-                .retryOnConnectionFailure(false)
+                .retryOnConnectionFailure(true)
                 .connectTimeout(120 * 1000.toLong(), TimeUnit.MILLISECONDS)
                 .readTimeout(120 * 1000.toLong(), TimeUnit.MILLISECONDS)
                 .writeTimeout(120 * 1000.toLong(), TimeUnit.MILLISECONDS)

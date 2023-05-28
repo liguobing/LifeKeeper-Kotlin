@@ -28,10 +28,5 @@ interface INetDiskView {
     fun updateUploadButtonStatus(status: Int)
 
 
-    fun updateImageCardData(imageCount: Int)
-
-    fun updatePhoneRecordCardData(phoneRecordCount: Int)
-
-    fun updateVideoCardData(videoCount: Int)
 
 }

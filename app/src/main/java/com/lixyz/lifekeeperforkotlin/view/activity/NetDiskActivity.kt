@@ -1,6 +1,7 @@
 package com.lixyz.lifekeeperforkotlin.view.activity
 
 import android.Manifest
+import android.app.ActivityOptions
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -91,6 +92,7 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
 
         private const val PHONE_RECORD_REQUEST_CODE = 100002
 
+        private const val WECHAT_RECORD_REQUEST_CODE = 100004
         private const val VIDEO_REQUEST_CODE = 100003
 
         private const val ALL_FILE_PERMISSION_REQUEST_CODE = 100004
@@ -141,6 +143,11 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
                         tvRecordCount!!.visibility = View.VISIBLE
                         imgRecordLoading!!.clearAnimation()
                         imgRecordLoading!!.visibility = View.GONE
+
+                        tvWeChatRecordCount!!.text = data.weChatRecordCount.toString()
+                        tvWeChatRecordCount!!.visibility = View.VISIBLE
+                        imgWeChatRecordLoading!!.clearAnimation()
+                        imgWeChatRecordLoading!!.visibility = View.GONE
 
                         needRequestData = false
                     }
@@ -238,6 +245,17 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
                 }
             }
         }
+        if (requestCode == WECHAT_RECORD_REQUEST_CODE && resultCode == RESULT_OK) {
+            MainScope().launch(Dispatchers.IO) {
+                val count = presenter!!.loadWeChatRecordData(this@NetDiskActivity)
+                withContext(Dispatchers.Main) {
+                    tvWeChatRecordCount!!.text = count.toString()
+                    tvWeChatRecordCount!!.visibility = View.VISIBLE
+                    imgWeChatRecordLoading!!.clearAnimation()
+                    imgWeChatRecordLoading!!.visibility = View.GONE
+                }
+            }
+        }
         if (requestCode == VIDEO_REQUEST_CODE && resultCode == RESULT_OK) {
             MainScope().launch(Dispatchers.IO) {
                 val count = presenter!!.loadVideoData(this@NetDiskActivity)
@@ -269,6 +287,9 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
     private var rlVideoWrapper: RelativeLayout? = null
     private var imgVideoLoading: ImageView? = null
     private var tvVideoCount: TextView? = null
+    private var rlWeChatRecordWrapper: RelativeLayout? = null
+    private var imgWeChatRecordLoading: ImageView? = null
+    private var tvWeChatRecordCount: TextView? = null
 
 
     override fun initWidget() {
@@ -284,10 +305,18 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
         imgImageLoading = findViewById(R.id.img_image_loading)
         imgImageLoading!!.startAnimation(animation)
         tvImageCount = findViewById(R.id.tv_image_count)
+
         rlRecordWrapper = findViewById(R.id.rl_record_wrapper)
         imgRecordLoading = findViewById(R.id.img_record_loading)
         imgRecordLoading!!.startAnimation(animation)
         tvRecordCount = findViewById(R.id.tv_record_count)
+
+        rlWeChatRecordWrapper = findViewById(R.id.rl_wx_record_wrapper)
+        imgWeChatRecordLoading = findViewById(R.id.img_wx_record_loading)
+        imgWeChatRecordLoading!!.startAnimation(animation)
+        tvWeChatRecordCount = findViewById(R.id.tv_wx_record_count)
+
+
         rlVideoWrapper = findViewById(R.id.rl_video_wrapper)
         imgVideoLoading = findViewById(R.id.img_video_loading)
         imgVideoLoading!!.startAnimation(animation)
@@ -297,6 +326,7 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
     override fun initListener() {
         rlImageWrapper!!.setOnClickListener(this)
         rlRecordWrapper!!.setOnClickListener(this)
+        rlWeChatRecordWrapper!!.setOnClickListener(this)
         rlVideoWrapper!!.setOnClickListener(this)
     }
 
@@ -305,7 +335,11 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
         when (v!!.id) {
             R.id.rl_image_wrapper -> {
                 val imageIntent = Intent(this, ImageCategoryActivity::class.java)
-                startActivityForResult(imageIntent, IMAGE_REQUEST_CODE)
+                startActivityForResult(
+                    imageIntent,
+                    IMAGE_REQUEST_CODE,
+                    ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                )
                 imgImageLoading!!.visibility = View.VISIBLE
                 imgImageLoading!!.startAnimation(animation)
                 tvImageCount!!.visibility = View.GONE
@@ -316,6 +350,13 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
                 imgRecordLoading!!.visibility = View.VISIBLE
                 imgRecordLoading!!.startAnimation(animation)
                 tvRecordCount!!.visibility = View.GONE
+            }
+            R.id.rl_wx_record_wrapper -> {
+                val imageIntent = Intent(this, WeChatRecordActivity::class.java)
+                startActivityForResult(imageIntent, WECHAT_RECORD_REQUEST_CODE)
+                imgWeChatRecordLoading!!.visibility = View.VISIBLE
+                imgWeChatRecordLoading!!.startAnimation(animation)
+                tvWeChatRecordCount!!.visibility = View.GONE
             }
             R.id.rl_video_wrapper -> {
                 val imageIntent = Intent(this, VideoCategoryActivity::class.java)
@@ -365,35 +406,6 @@ class NetDiskActivity : BaseActivity(), View.OnClickListener, INetDiskView {
         msg.arg1 = status
         handler.sendMessage(msg)
     }
-
-    override fun updateImageCardData(imageCount: Int) {
-        runOnUiThread {
-            tvImageCount!!.text = imageCount.toString()
-            tvImageCount!!.visibility = View.VISIBLE
-            imgImageLoading!!.clearAnimation()
-            imgImageLoading!!.visibility = View.GONE
-        }
-    }
-
-    override fun updatePhoneRecordCardData(phoneRecordCount: Int) {
-        runOnUiThread {
-            tvRecordCount!!.text = phoneRecordCount.toString()
-            tvRecordCount!!.visibility = View.VISIBLE
-            imgRecordLoading!!.clearAnimation()
-            imgRecordLoading!!.visibility = View.GONE
-        }
-    }
-
-    override fun updateVideoCardData(videoCount: Int) {
-        runOnUiThread {
-            tvVideoCount!!.text = videoCount.toString()
-            tvVideoCount!!.visibility = View.VISIBLE
-            imgVideoLoading!!.clearAnimation()
-            imgVideoLoading!!.visibility = View.GONE
-
-        }
-    }
-
 
     class MyHandler(activity: NetDiskActivity) : Handler(Looper.getMainLooper()) {
         private val mActivity: WeakReference<NetDiskActivity> = WeakReference(activity)

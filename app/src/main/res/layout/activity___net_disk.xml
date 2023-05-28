@@ -145,6 +145,61 @@
                     </RelativeLayout>
                 </RelativeLayout>
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_wx_record_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/net_disk_phone_weixin_record" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/black"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/wx_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/NetDiskActivityWeChatRecord"
+                        android:textColor="#ffffff"
+                        android:textSize="30sp" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/wx_record"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/img_wx_record_loading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/net_disk___loading_icon" />
+
+                        <TextView
+                            android:id="@+id/tv_wx_record_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="#ffffff"
+                            android:textSize="20sp"
+                            android:visibility="gone"
+                            tool:text="2000" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_video_wrapper"

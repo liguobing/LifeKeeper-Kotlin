@@ -226,6 +226,7 @@
 
     <string name="NetDiskActivityVideo">视频</string>
     <string name="NetDiskActivityRecord">通话录音</string>
+    <string name="NetDiskActivityWeChatRecord">微信录音</string>
     <string name="NetDiskActivityImage">照片</string>
     <string name="IndexRequestLocationPermission">授予定位权限，开启背景天气</string>
     <string name="NetDiskActivityRequestPermission">授予存储权限，开启文件备份</string>
