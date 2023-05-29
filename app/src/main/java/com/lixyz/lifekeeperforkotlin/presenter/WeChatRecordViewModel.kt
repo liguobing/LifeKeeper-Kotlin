@@ -142,7 +142,7 @@ class WeChatRecordViewModel : ViewModel() {
 
     @SuppressLint("Range")
     fun deleteRecordFile(context: Context, checkedList: ArrayList<String>) {
-        val selection: String = "ContactName IN ('" + TextUtils.join("','", checkedList) + "')"
+        val selection: String = "FileName IN ('" + TextUtils.join("','", checkedList) + "')"
         val helper = SQLiteHelper(context, "LifeKeeper.db", null, 1)
         val database = helper.writableDatabase
         database.beginTransaction()

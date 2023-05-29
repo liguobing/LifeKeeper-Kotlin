@@ -463,7 +463,7 @@ class WeChatRecordActivity : AppCompatActivity(), IWeChatRecordView {
                             val checkedList = ArrayList<String>()
                             localFileList.forEachIndexed { _, needUploadItem ->
                                 if (needUploadItem.check.value) {
-                                    checkedList.add(needUploadItem.fileName)
+                                    checkedList.add("微信录音 ${needUploadItem.fileName}")
                                 }
                             }
                             viewModel!!.deleteRecordFile(this@WeChatRecordActivity, checkedList)
